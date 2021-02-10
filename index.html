@@ -10,7 +10,14 @@
     <canvas></canvas>
     <p>Autor: Adriano Eiterer Oliveira<p>
     <script>
-        
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width=640;
+        canvas.height= 500;
+        //desenha fundo;
+        ctx.fillStyle="black";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+
     </script>
 </body>
 </html>

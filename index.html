@@ -17,18 +17,41 @@
         canvas.width=640;
         canvas.height= 500;
         let l = 2;
-        let c = 1;
+        let c = 0;
+        let t0;
+        let dt;
+
+        function desenhaFundo()
+        {            
+            //desenha fundo;
+            ctx.fillStyle="black";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+        }
+
         DarkElf.addEventListener("load",TerminouDeCarregar);
-
-        //desenha fundo;
-        ctx.fillStyle="black";
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-
 
         function TerminouDeCarregar()
         {
             //Imagem,sx, sy , sw, sh, ds, dy, dw, dh
         ctx.drawImage(DarkElf,c*64,l*64,64,64,0,0,64,64,);
+        }
+
+        requestAnimationFrame(passos)
+        function passos(t)
+        {
+            t0 = t0 ?? t;
+            dt = (t-t0)/1000
+            desenhaFundo();
+            c= c+(10*dt);
+            if(c>6)
+            {
+                c=0;
+            }
+            //Imagem,sx, sy , sw, sh, ds, dy, dw, dh
+            ctx.drawImage(DarkElf,Math.floor(c)*64,l*64,64,64,0,0,64,64,);
+
+            t0 = t
+            requestAnimationFrame(passos)
         }
     </script>
 </body>

@@ -13,17 +13,22 @@
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
         const DarkElf = new Image();
-        DarkElf.src = "assets/darkElf01.png"
+        DarkElf.src = "assets/darkElf.png"
         canvas.width=640;
         canvas.height= 500;
+        let l = 2;
+        let c = 1;
         DarkElf.addEventListener("load",TerminouDeCarregar);
 
         //desenha fundo;
         ctx.fillStyle="black";
         ctx.fillRect(0,0,canvas.width,canvas.height);
+
+
         function TerminouDeCarregar()
         {
-        ctx.drawImage(DarkElf,200,200);
+            //Imagem,sx, sy , sw, sh, ds, dy, dw, dh
+        ctx.drawImage(DarkElf,c*64,l*64,64,64,0,0,64,64,);
         }
     </script>
 </body>

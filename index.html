@@ -18,7 +18,30 @@
         canvas.height= 500;
         let l = 2;
         let c = 0;
-        const POSSES = [7,7,7,7,8,8,8,8,9,9,9,9,6,6,6,6,13,13,13,13,6]
+        const POSSES = [
+            {qmax:7, pv: 10},
+            {qmax:7, pv: 10},
+            {qmax:7, pv: 10},
+            {qmax:7, pv: 10},
+            {qmax:8, pv: 10},
+            {qmax:8, pv: 10},
+            {qmax:8, pv: 10},
+            {qmax:8, pv: 10},
+            {qmax:9, pv: 10},
+            {qmax:9, pv: 10},
+            {qmax:9, pv: 10},
+            {qmax:9, pv: 10},
+            {qmax:6, pv: 10},
+            {qmax:6, pv: 10},
+            {qmax:6, pv: 10},
+            {qmax:6, pv: 10},
+            {qmax:13, pv: 20},
+            {qmax:13, pv: 20},
+            {qmax:13, pv: 20},
+            {qmax:13, pv: 20},
+            {qmax:6, pv: 10}
+
+        ]
         let pose = 0;
         let quadro = 0;
         let t0;
@@ -45,14 +68,14 @@
             t0 = t0 ?? t;
             dt = (t-t0)/1000
             desenhaFundo();
-            quadro = quadro+(1*dt);
+            quadro = quadro+(POSSES[pose].pv*dt);
             //Pula ultimo quadro
-            if(quadro>=POSSES[pose]-1)
+            if(quadro>=POSSES[pose].qmax-1)
             {
                 quadro=0;
             }
             //Não pula ultimo quadro
-            //if(quadro>=POSSES[pose])
+            //if(quadro>=POSSES[pose].qmax)
             //{
                 //quadro=0;
             //}

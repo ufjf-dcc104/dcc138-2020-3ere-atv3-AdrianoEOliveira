@@ -8,12 +8,12 @@
 <body>
     <h1>Atividade 03</h1>
     <canvas></canvas>
-    <img src = "assets/darkElf01.png"/>
     <p>Autor: Adriano Eiterer Oliveira<p>
     <script>
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
-        const DarkElf = document.querySelector("img");
+        const DarkElf = new Image();
+        DarkElf.src = "assets/darkElf01.png"
         canvas.width=640;
         canvas.height= 500;
         DarkElf.addEventListener("load",TerminouDeCarregar);

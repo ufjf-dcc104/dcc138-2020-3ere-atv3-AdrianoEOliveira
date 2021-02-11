@@ -12,35 +12,22 @@
     <script>
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
-        const DarkElf = new Image();
-        DarkElf.src = "assets/darkElf.png"
+        const Robot = new Image();
+        Robot.src = "assets/robot.png"
         canvas.width=640;
         canvas.height= 500;
         let l = 2;
         let c = 0;
         const POSSES = [
-            {qmax:7, pv: 10},
-            {qmax:7, pv: 10},
-            {qmax:7, pv: 10},
-            {qmax:7, pv: 10},
-            {qmax:8, pv: 10},
-            {qmax:8, pv: 10},
-            {qmax:8, pv: 10},
-            {qmax:8, pv: 10},
-            {qmax:9, pv: 10},
-            {qmax:9, pv: 10},
-            {qmax:9, pv: 10},
-            {qmax:9, pv: 10},
-            {qmax:6, pv: 10},
-            {qmax:6, pv: 10},
-            {qmax:6, pv: 10},
-            {qmax:6, pv: 10},
-            {qmax:13, pv: 20},
-            {qmax:13, pv: 20},
-            {qmax:13, pv: 20},
-            {qmax:13, pv: 20},
-            {qmax:6, pv: 10}
-
+            {qmax:10, pv: 15},//Animação parado
+            {qmax:8, pv: 15},//Animação corrida
+            {qmax:10, pv: 20},//Animação Pular
+            {qmax:8, pv: 20},//Animação ataque ataque fisico
+            {qmax:4, pv: 20},//Animação de tiro
+            {qmax:8, pv: 20},//Animação Pular com ataque fisico
+            {qmax:5, pv: 20},//Animação Pular com tiro
+            {qmax:9, pv: 15},//Animação corrida com tiro
+            {qmax:10, pv: 20},//Animação Morte
         ]
         let pose = 0;
         let quadro = 0;
@@ -54,12 +41,12 @@
             ctx.fillRect(0,0,canvas.width,canvas.height);
         }
 
-        DarkElf.addEventListener("load",TerminouDeCarregar);
+        Robot.addEventListener("load",TerminouDeCarregar);
 
         function TerminouDeCarregar()
         {
             //Imagem,sx, sy , sw, sh, ds, dy, dw, dh
-        ctx.drawImage(DarkElf,c*64,l*64,64,64,0,0,64,64,);
+        ctx.drawImage(Robot,c*140.5,l*138.5,140.5,138.5,0,0,140.5,138.5,);
         }
 
         requestAnimationFrame(passos)
@@ -80,7 +67,7 @@
                 //quadro=0;
             //}
             //Imagem,sx, sy , sw, sh, ds, dy, dw, dh
-            ctx.drawImage(DarkElf,Math.floor(quadro)*64,pose*64,64,64,0,0,64,64,);
+            ctx.drawImage(Robot,Math.floor(quadro)*140.5,pose*138.5,140.5,138.5,0,0,140.5,138.5);
 
             t0 = t
             requestAnimationFrame(passos)
